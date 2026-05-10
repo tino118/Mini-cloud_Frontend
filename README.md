@@ -1,0 +1,2 @@
+# Mini-cloud
+CREATE A DATACENTER FOR AFRICA
