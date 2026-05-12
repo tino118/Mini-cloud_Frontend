@@ -5,7 +5,7 @@ import Link from "next/link";
 
 // ── Icons (inline SVG, no extra deps) ─────────────────────────────────────────
 
-function CloudLogoIcon() {
+export function CloudLogoIcon() {
   return (
     <svg width="36" height="28" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -376,18 +376,18 @@ export default function MiniCloudPage() {
 
             {/* CTA buttons */}
             <div className="hidden lg:flex items-center gap-3">
-              <a
-                href="#"
+              <Link
+                href="/login"
                 className="px-4 py-2 text-sm font-medium text-foreground border border-border rounded-lg hover:border-[#1a73e8] hover:text-[#1a73e8] transition-all duration-200 hover:shadow-sm"
               >
                 Connexion
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                href="/checkout?plan=starter"
                 className="px-5 py-2 text-sm text-white bg-[#1a73e8] rounded-lg hover:bg-[#1557b0] transition-all duration-200 font-semibold shadow-sm hover:shadow-md"
               >
                 Essai gratuit
-              </a>
+              </Link>
             </div>
 
             {/* Mobile hamburger */}
@@ -426,8 +426,8 @@ export default function MiniCloudPage() {
               </a>
             ))}
             <div className="flex flex-col gap-2 pt-3 mt-2 border-t border-border">
-              <a href="#" className="py-2.5 text-sm text-center font-medium border border-border rounded-lg hover:border-[#1a73e8]">Connexion</a>
-              <a href="#" className="py-2.5 text-sm text-center text-white bg-[#1a73e8] rounded-lg font-semibold">Essai gratuit</a>
+              <Link href="/login" className="py-2.5 text-sm text-center font-medium border border-border rounded-lg hover:border-[#1a73e8]">Connexion</Link>
+              <Link href="/checkout?plan=starter" className="py-2.5 text-sm text-center text-white bg-[#1a73e8] rounded-lg font-semibold">Essai gratuit</Link>
             </div>
           </div>
         )}
@@ -455,12 +455,12 @@ export default function MiniCloudPage() {
                   Mini Cloud fournit des infrastructures cloud fiables, des laboratoires virtuels avancés et des services de déploiement sur-mesure pour accompagner votre croissance.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.25s" }}>
-                  <a
-                    href="#"
+                  <Link
+                    href="/checkout?plan=starter"
                     className="group px-6 py-3 text-sm font-semibold text-white bg-[#1a73e8] rounded-lg hover:bg-[#1557b0] transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-0.5"
                   >
                     Créer un compte
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className="group px-6 py-3 text-sm font-semibold text-foreground border border-border rounded-lg hover:border-[#1a73e8] hover:text-[#1a73e8] transition-all duration-300 hover:shadow-sm"
@@ -805,9 +805,12 @@ export default function MiniCloudPage() {
                     </li>
                   ))}
                 </ul>
-                <button className={`w-full py-4 rounded-xl font-bold text-sm transition-all ${plan.featured ? 'bg-primary-foreground text-primary hover:bg-gray-100' : 'border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground'}`}>
+                <Link 
+                  href={plan.isQuote ? "#contact" : `/checkout?plan=${plan.name.toLowerCase()}`}
+                  className={`w-full py-4 rounded-xl font-bold text-sm transition-all text-center block ${plan.featured ? 'bg-primary-foreground text-primary hover:bg-gray-100' : 'border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground'}`}
+                >
                   {plan.isQuote ? 'Nous contacter' : 'Commencer'}
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -821,7 +824,7 @@ export default function MiniCloudPage() {
           <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-6">Prêt à propulser votre infrastructure ?</h2>
           <p className="text-white/60 text-lg mb-10">Rejoignez plus de 500 entreprises qui font confiance à Mini Cloud pour leur croissance digitale.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="#" className="bg-white text-[#0d1b3e] px-10 py-4 rounded-xl font-bold text-sm shadow-xl hover:-translate-y-1 transition-all">Créer un compte gratuit</a>
+            <Link href="/checkout?plan=starter" className="bg-white text-[#0d1b3e] px-10 py-4 rounded-xl font-bold text-sm shadow-xl hover:-translate-y-1 transition-all">Créer un compte gratuit</Link>
             <a href="#" className="border-2 border-white/20 text-white px-10 py-4 rounded-xl font-bold text-sm hover:bg-white/5 transition-all">Parler à un expert</a>
           </div>
         </div>
