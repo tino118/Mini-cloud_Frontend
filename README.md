@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mini Cloud - Frontend Infrastructure
 
 Bienvenue sur le dépôt du frontend de **Mini Cloud**, une plateforme cloud innovante permettant d'héberger des infrastructures, d'accéder à des laboratoires virtuels (EVE-NG, GNS3) et de déployer des solutions expertes.
@@ -49,3 +50,7 @@ L'application sera disponible sur `http://localhost:3000`.
 ---
 
 Développé avec ❤️ par l'équipe Mini Cloud.
+=======
+# Mini-cloud
+CREATE A DATACENTER FOR AFRICA
+>>>>>>> 342a305818ab9dd9eacf22b61f3c5d4c7bb3a470
